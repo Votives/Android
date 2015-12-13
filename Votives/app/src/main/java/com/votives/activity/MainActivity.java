@@ -5,42 +5,46 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
 
 import com.votives.R;
 import com.votives.adapter.PagerAdapter;
+import com.votives.adapter.ScreenKeys;
 import com.votives.fragment.BaseFragment;
 import com.votives.fragment.CreateUserFragment;
+import com.votives.fragment.DiscoverMainFragment;
 import com.votives.fragment.InterestMainFragment;
 import com.votives.fragment.LoginFragment;
 import com.votives.fragment.MessagesMainFragment;
 import com.votives.fragment.ToolbarFragment;
 import com.votives.listener.CreateUserListener;
+import com.votives.listener.InterestMainListener;
 import com.votives.listener.LoginListener;
 import com.votives.listener.MessagesMainListener;
 import com.votives.listener.MyOnClickListener;
 import com.votives.listener.MyPagerListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class MainActivity extends FragmentActivity {
 	private static FragmentManager manager;
-	public static HashMap<String,BaseFragment> pagerFragments;
+	public static ArrayList<BaseFragment> pagerFragments;
 	public static HashMap<String,BaseFragment> otherFragments;
 	public HashMap<String,MyOnClickListener> listeners;
 	PagerAdapter pagerAdapter;
 	ViewPager pager;
-
-	public final String LOGIN_SCREEN = "loginScreen";
-	public final String INTERESTS_MAIN = "interestsMain";
-	public final String CREATE_USER = "createUser";
-	public final String MESSAGES_MAIN = "messagesMain";
-
+	FrameLayout otherFragmentsView;
+	ToolbarFragment toolbarFragment;
+	MyPagerListener pageListener;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		manager = getSupportFragmentManager();
 		initMVC();
 
 		pagerAdapter = new PagerAdapter(manager);
@@ -48,14 +52,17 @@ public class MainActivity extends FragmentActivity {
 		pager.setAdapter(pagerAdapter);
 		pager.setCurrentItem(0);
 		pager.setOffscreenPageLimit(3);
-		pager.setOnPageChangeListener(new MyPagerListener());
-
-		manager = getSupportFragmentManager();
-		manager.beginTransaction().add(R.id.fragment, pagerFragments.get(INTERESTS_MAIN)).commit();
+		pageListener = new MyPagerListener();
+		pageListener.setFragmentManager(manager);
+		pager.setOnPageChangeListener(pageListener);
 	}
 
 	public void changeScreen(String newScreen){
-		manager.beginTransaction().add(R.id.fragment, pagerFragments.get(newScreen)).commit();
+		if(otherFragments.containsKey(newScreen)) {
+			pager.setVisibility(View.GONE);
+			otherFragmentsView.setVisibility(View.VISIBLE);
+			manager.beginTransaction().add(R.id.fragment, otherFragments.get(newScreen)).commit();
+		}
 	}
 
 	@Override
@@ -81,27 +88,28 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	public void initMVC(){
-		pagerFragments = new HashMap<>();
+		pagerFragments = new ArrayList<>();
 
-		pagerFragments.put(INTERESTS_MAIN, InterestMainFragment.newInstance());
-		pagerFragments.put(MESSAGES_MAIN, MessagesMainFragment.newInstance());
+		pagerFragments.add(InterestMainFragment.newInstance());
+		pagerFragments.add(MessagesMainFragment.newInstance());
+		pagerFragments.add(DiscoverMainFragment.newInstance());
 
 		otherFragments = new HashMap<>();
-		otherFragments.put(LOGIN_SCREEN, LoginFragment.newInstance());
-		otherFragments.put(CREATE_USER, CreateUserFragment.newInstance());
+		otherFragments.put(ScreenKeys.getScreenByIntKey(0), LoginFragment.newInstance());
+		otherFragments.put(ScreenKeys.getScreenByIntKey(2), CreateUserFragment.newInstance());
 
 		listeners = new HashMap<>();
-		listeners.put(LOGIN_SCREEN, new LoginListener());
-		listeners.put(INTERESTS_MAIN, new LoginListener());
-		listeners.put(CREATE_USER, new CreateUserListener());
-		listeners.put(MESSAGES_MAIN, new MessagesMainListener());
+		listeners.put(ScreenKeys.getScreenByIntKey(0), new LoginListener());
+		listeners.put(ScreenKeys.getScreenByIntKey(1), new InterestMainListener());
+		listeners.put(ScreenKeys.getScreenByIntKey(2), new CreateUserListener());
+		listeners.put(ScreenKeys.getScreenByIntKey(3), new MessagesMainListener());
 
 
-		for(String key : pagerFragments.keySet()){
-			pagerFragments.get(key).setListener(listeners.get(key));
-			listeners.get(key).setView(pagerFragments.get(key));
+		for(int i = 0; i < pagerFragments.size(); i++){
+			pagerFragments.get(i).setListener(listeners.get(ScreenKeys.getScreenByIntKey(i)));
+			listeners.get(ScreenKeys.getScreenByIntKey(i)).setView(pagerFragments.get(i));
 		}
-		ToolbarFragment tbFragment = ToolbarFragment.newInstance(1);
-		manager.beginTransaction().add(R.id.tool_bar, tbFragment).commit();
+		toolbarFragment = ToolbarFragment.newInstance(1);
+		manager.beginTransaction().add(R.id.tool_bar, toolbarFragment).commit();
 	}
 }

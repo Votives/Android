@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.votives.R;
 
@@ -47,7 +47,7 @@ public class ToolbarFragment extends Fragment implements View.OnClickListener{
 	@Override
 	public void onClick(View v) {
 		if(v.equals(messages)){
-
+			Toast.makeText(getActivity(), "Messages", Toast.LENGTH_SHORT).show();
 		}else if(v.equals(interests)){
 
 		}else if(v.equals(discover)){
