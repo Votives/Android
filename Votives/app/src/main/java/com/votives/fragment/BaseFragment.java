@@ -6,6 +6,8 @@ import android.view.View;
 
 import com.votives.listener.MyOnClickListener;
 
+import java.util.HashMap;
+
 /**
  * Created by darkbobo on 11/17/15.
  */
@@ -23,5 +25,9 @@ public class BaseFragment extends Fragment {
 
 	public void setListener(MyOnClickListener listener){
 		this.listener = listener;
+	}
+
+	public void registerViews(){
+
 	}
 }

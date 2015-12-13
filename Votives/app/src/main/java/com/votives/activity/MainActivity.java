@@ -1,4 +1,5 @@
 package com.votives.activity;
+
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -19,6 +20,7 @@ import com.votives.fragment.LoginFragment;
 import com.votives.fragment.MessagesMainFragment;
 import com.votives.fragment.ToolbarFragment;
 import com.votives.listener.CreateUserListener;
+import com.votives.listener.DiscoverMainListener;
 import com.votives.listener.InterestMainListener;
 import com.votives.listener.LoginListener;
 import com.votives.listener.MessagesMainListener;
@@ -27,7 +29,6 @@ import com.votives.listener.MyPagerListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
 
 public class MainActivity extends FragmentActivity {
 	private static FragmentManager manager;
@@ -62,6 +63,10 @@ public class MainActivity extends FragmentActivity {
 			pager.setVisibility(View.GONE);
 			otherFragmentsView.setVisibility(View.VISIBLE);
 			manager.beginTransaction().add(R.id.fragment, otherFragments.get(newScreen)).commit();
+		}else{
+			pager.setVisibility(View.VISIBLE);
+			otherFragmentsView.setVisibility(View.GONE);
+			pager.setCurrentItem(ScreenKeys.getPagerScreenLocation(newScreen));
 		}
 	}
 
@@ -99,16 +104,25 @@ public class MainActivity extends FragmentActivity {
 		otherFragments.put(ScreenKeys.getScreenByIntKey(2), CreateUserFragment.newInstance());
 
 		listeners = new HashMap<>();
-		listeners.put(ScreenKeys.getScreenByIntKey(0), new LoginListener());
-		listeners.put(ScreenKeys.getScreenByIntKey(1), new InterestMainListener());
-		listeners.put(ScreenKeys.getScreenByIntKey(2), new CreateUserListener());
-		listeners.put(ScreenKeys.getScreenByIntKey(3), new MessagesMainListener());
+		listeners.put(ScreenKeys.LOGIN_SCREEN, new LoginListener(this));
+		listeners.put(ScreenKeys.INTERESTS_MAIN, new InterestMainListener(this));
+		listeners.put(ScreenKeys.CREATE_USER, new CreateUserListener(this));
+		listeners.put(ScreenKeys.MESSAGES_MAIN, new MessagesMainListener(this));
+		listeners.put(ScreenKeys.DISCOVER_MAIN, new DiscoverMainListener(this));
 
+		pagerFragments.get(0).setListener(listeners.get(ScreenKeys.INTERESTS_MAIN));
+		pagerFragments.get(1).setListener(listeners.get(ScreenKeys.MESSAGES_MAIN));
+		pagerFragments.get(2).setListener(listeners.get(ScreenKeys.DISCOVER_MAIN));
 
-		for(int i = 0; i < pagerFragments.size(); i++){
-			pagerFragments.get(i).setListener(listeners.get(ScreenKeys.getScreenByIntKey(i)));
-			listeners.get(ScreenKeys.getScreenByIntKey(i)).setView(pagerFragments.get(i));
+		listeners.get(ScreenKeys.INTERESTS_MAIN).setView(pagerFragments.get(0));
+		listeners.get(ScreenKeys.MESSAGES_MAIN).setView(pagerFragments.get(1));
+		listeners.get(ScreenKeys.DISCOVER_MAIN).setView(pagerFragments.get(2));
+
+		for(String key : otherFragments.keySet()){
+			otherFragments.get(key).setListener(listeners.get(key));
+			listeners.get(key).setView(otherFragments.get(key));
 		}
+
 		toolbarFragment = ToolbarFragment.newInstance(1);
 		manager.beginTransaction().add(R.id.tool_bar, toolbarFragment).commit();
 	}

@@ -4,11 +4,10 @@ import android.content.Context;
 import android.view.View;
 
 /**
- * Created by darkbobo on 11/17/15.
+ * Created by darkbobo on 12/13/15.
  */
-public class LoginListener extends MyOnClickListener {
-
-	public LoginListener(Context context){
+public class DiscoverMainListener extends MyOnClickListener {
+	public DiscoverMainListener(Context context) {
 		super(context);
 	}
 

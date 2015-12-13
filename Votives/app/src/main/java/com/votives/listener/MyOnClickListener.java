@@ -1,7 +1,9 @@
 package com.votives.listener;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.BaseAdapter;
 
 import com.votives.fragment.BaseFragment;
 
@@ -12,8 +14,11 @@ import java.util.HashMap;
 public class MyOnClickListener implements View.OnClickListener {
 	HashMap<String,View> views;
 	BaseFragment fragment;
+	BaseAdapter adapter;
+	Context context;
 
-	public MyOnClickListener(){
+	public MyOnClickListener(Context context){
+		this.context = context;
 		views = new HashMap<>();
 	}
 
@@ -28,5 +33,9 @@ public class MyOnClickListener implements View.OnClickListener {
 
 	public void setView(BaseFragment fragment){
 		this.fragment = fragment;
+	}
+
+	public void initViews(){
+
 	}
 }
