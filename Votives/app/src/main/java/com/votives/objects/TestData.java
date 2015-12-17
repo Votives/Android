@@ -1,6 +1,7 @@
 package com.votives.objects;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by darkbobo on 12/13/15.
@@ -42,16 +43,15 @@ public class TestData {
 		interests.add(new Interest("cat", 2));
 		interests.add(new Interest("pen", 8));
 
-		users.add(new User());
-		users.add(new User());
-		users.add(new User());
-		users.add(new User());
-		users.add(new User());
+		users.add(new User(1, "Jim", 123456, "M"));
+		users.add(new User(2, "Pam", 2341323, "F"));
+		users.add(new User(3, "Bill", 123423, "M"));
+		users.add(new User(4, "Arai", 32121, "M"));
 
-		messages.add(new ChatMessage());
-		messages.add(new ChatMessage());
-		messages.add(new ChatMessage());
-		messages.add(new ChatMessage());
-		messages.add(new ChatMessage());
+		messages.add(new ChatMessage(1, 1, 2, "hello", new Date().getTime()));
+		messages.add(new ChatMessage(2, 2, 1, "hello to you too", new Date().getTime()));
+		messages.add(new ChatMessage(3, 1, 2, "i think you're cute", new Date().getTime()));
+		messages.add(new ChatMessage(4, 1, 3, "your mother", new Date().getTime()));
+		messages.add(new ChatMessage(5, 3, 1, "what about that slut?", new Date().getTime()));
 	}
 }
