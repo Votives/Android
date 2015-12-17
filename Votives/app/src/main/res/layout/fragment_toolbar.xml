@@ -5,13 +5,13 @@
               android:layout_height="match_parent"
               android:weightSum="3">
     <Button
-        android:id="@+id/toolbar_messages"
+        android:id="@+id/toolbar_interests"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_weight="1">
     </Button>
     <Button
-        android:id="@+id/toolbar_interests"
+        android:id="@+id/toolbar_messages"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_weight="1">

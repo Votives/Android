@@ -5,10 +5,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.votives.adapter.InterestsMainAdapter;
-import com.votives.objects.Interest;
 import com.votives.objects.TestData;
-
-import java.util.ArrayList;
 
 /**
  * Created by darkbobo on 11/17/15.
@@ -28,6 +25,6 @@ public class InterestMainListener extends MyOnClickListener {
 	public void initViews() {
 		// code to add interests from DB
 		adapter = new InterestsMainAdapter(context, TestData.getInstance().getInterests());
-		((ListView)views.get("interestsList")).setAdapter(adapter);
+		((ListView)views.get("interestList")).setAdapter(adapter);
 	}
 }

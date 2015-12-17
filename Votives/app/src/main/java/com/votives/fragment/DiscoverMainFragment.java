@@ -9,6 +9,8 @@ import com.votives.R;
 
 /**
  * Created by darkbobo on 12/13/15.
+ *
+ * search capabilities
  */
 public class DiscoverMainFragment extends BaseFragment {
 
@@ -22,7 +24,6 @@ public class DiscoverMainFragment extends BaseFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		rootView = inflater.inflate(R.layout.fragment_discover_main, container, false);
-
 		return rootView;
 	}
 }

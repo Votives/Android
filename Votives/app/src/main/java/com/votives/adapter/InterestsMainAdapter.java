@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import com.votives.R;
 import com.votives.objects.Interest;
@@ -47,8 +48,8 @@ public class InterestsMainAdapter extends BaseAdapter {
 		if(convertView == null){
 			convertView = inflater.inflate(R.layout.row_interest, parent, false);
 			holder = new ViewHolder();
-			holder.interestsTitle = (MyTextView)convertView.findViewById(R.id.interests_title);
-			holder.interestsMatching = (MyTextView)convertView.findViewById(R.id.interests_matching);
+			holder.interestsTitle = (TextView)convertView.findViewById(R.id.interests_title);
+			holder.interestsMatching = (TextView)convertView.findViewById(R.id.interests_matching);
 			convertView.setTag(holder);
 		}else{
 			holder = (ViewHolder)convertView.getTag();
@@ -61,7 +62,7 @@ public class InterestsMainAdapter extends BaseAdapter {
 	}
 
 	private class ViewHolder{
-		MyTextView interestsTitle;
-		MyTextView interestsMatching;
+		TextView interestsTitle;
+		TextView interestsMatching;
 	}
 }

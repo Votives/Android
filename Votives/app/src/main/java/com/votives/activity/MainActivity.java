@@ -16,16 +16,19 @@ import com.votives.fragment.BaseFragment;
 import com.votives.fragment.CreateUserFragment;
 import com.votives.fragment.DiscoverMainFragment;
 import com.votives.fragment.InterestMainFragment;
+import com.votives.fragment.InterestUserListFragment;
 import com.votives.fragment.LoginFragment;
 import com.votives.fragment.MessagesMainFragment;
 import com.votives.fragment.ToolbarFragment;
 import com.votives.listener.CreateUserListener;
 import com.votives.listener.DiscoverMainListener;
 import com.votives.listener.InterestMainListener;
+import com.votives.listener.InterestUserListListener;
 import com.votives.listener.LoginListener;
 import com.votives.listener.MessagesMainListener;
 import com.votives.listener.MyOnClickListener;
 import com.votives.listener.MyPagerListener;
+import com.votives.utils.L;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,8 +39,8 @@ public class MainActivity extends FragmentActivity {
 	public static HashMap<String,BaseFragment> otherFragments;
 	public HashMap<String,MyOnClickListener> listeners;
 	PagerAdapter pagerAdapter;
-	ViewPager pager;
-	FrameLayout otherFragmentsView;
+	static ViewPager pager;
+	static FrameLayout otherFragmentsView;
 	ToolbarFragment toolbarFragment;
 	MyPagerListener pageListener;
 
@@ -56,14 +59,16 @@ public class MainActivity extends FragmentActivity {
 		pageListener = new MyPagerListener();
 		pageListener.setFragmentManager(manager);
 		pager.setOnPageChangeListener(pageListener);
+		otherFragmentsView = (FrameLayout)findViewById(R.id.fragment);
 	}
 
-	public void changeScreen(String newScreen){
+	public static void changeScreen(String newScreen){
 		if(otherFragments.containsKey(newScreen)) {
 			pager.setVisibility(View.GONE);
 			otherFragmentsView.setVisibility(View.VISIBLE);
 			manager.beginTransaction().add(R.id.fragment, otherFragments.get(newScreen)).commit();
 		}else{
+			L.e(newScreen);
 			pager.setVisibility(View.VISIBLE);
 			otherFragmentsView.setVisibility(View.GONE);
 			pager.setCurrentItem(ScreenKeys.getPagerScreenLocation(newScreen));
@@ -102,6 +107,7 @@ public class MainActivity extends FragmentActivity {
 		otherFragments = new HashMap<>();
 		otherFragments.put(ScreenKeys.getScreenByIntKey(0), LoginFragment.newInstance());
 		otherFragments.put(ScreenKeys.getScreenByIntKey(2), CreateUserFragment.newInstance());
+		otherFragments.put(ScreenKeys.getScreenByIntKey(5), InterestUserListFragment.newInstance());
 
 		listeners = new HashMap<>();
 		listeners.put(ScreenKeys.LOGIN_SCREEN, new LoginListener(this));
@@ -109,6 +115,7 @@ public class MainActivity extends FragmentActivity {
 		listeners.put(ScreenKeys.CREATE_USER, new CreateUserListener(this));
 		listeners.put(ScreenKeys.MESSAGES_MAIN, new MessagesMainListener(this));
 		listeners.put(ScreenKeys.DISCOVER_MAIN, new DiscoverMainListener(this));
+		listeners.put(ScreenKeys.INTERESTS_USER_LIST, new InterestUserListListener(this));
 
 		pagerFragments.get(0).setListener(listeners.get(ScreenKeys.INTERESTS_MAIN));
 		pagerFragments.get(1).setListener(listeners.get(ScreenKeys.MESSAGES_MAIN));
@@ -123,7 +130,7 @@ public class MainActivity extends FragmentActivity {
 			listeners.get(key).setView(otherFragments.get(key));
 		}
 
-		toolbarFragment = ToolbarFragment.newInstance(1);
+		toolbarFragment = ToolbarFragment.newInstance(0);
 		manager.beginTransaction().add(R.id.tool_bar, toolbarFragment).commit();
 	}
 }
