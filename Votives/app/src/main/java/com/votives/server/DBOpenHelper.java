@@ -5,6 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.votives.R;
+import com.votives.objects.ChatMessage;
+
+import java.util.ArrayList;
 
 /**
  * Created by darkbobo on 12/13/15.
@@ -85,6 +88,32 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
 		sqlA.setLength(0);
 	}
+
+/*
+	public ArrayList<ChatMessage> getChatMessageGroupList(){
+		StringBuilder sqlA = new StringBuilder();
+		sqlA.setLength(0);
+		sqlA.append("SELECT ");
+		// display date/time, name/age/gender, most recent message snippet
+		sqlA.append("   Users.Name ");
+		sqlA.append(" , Users.DOB ");
+		sqlA.append(" , Users.Gender ");
+		sqlA.append(" , Messages.TimeCreated ");
+		sqlA.append(" , Messages.MessageText ");
+		//sqlA.append(" , InterestCount ");
+		sqlA.append("FROM Users ");
+		sqlA.append("INNER JOIN Messages ON Users.UserID = Messages.ReceiverID ");
+		sqlA.append("GROUP BY Users.Name ");
+
+		sqlA.setLength(0);
+		sqlA = null;
+	}
+
+	public ArrayList<ChatMessage> getChatMessageBySender(int senderID){
+
+	}
+*/
+
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

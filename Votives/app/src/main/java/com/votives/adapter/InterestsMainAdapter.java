@@ -9,22 +9,18 @@ import android.widget.TextView;
 
 import com.votives.R;
 import com.votives.objects.Interest;
-import com.votives.views.MyTextView;
 
 import java.util.ArrayList;
 
 /**
  * Created by darkbobo on 12/13/15.
  */
-public class InterestsMainAdapter extends BaseAdapter {
+public class InterestsMainAdapter extends MyBaseAdapter {
 	ArrayList<Interest> interests;
-	LayoutInflater inflater;
-	Context context;
 
 	public InterestsMainAdapter(Context context, ArrayList<Interest> interests){
-		this.context = context;
+		super(context);
 		this.interests = interests;
-		inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
 	@Override
