@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.votives.R;
 import com.votives.activity.MainActivity;
+import com.votives.utils.L;
 
 /**
  * Created by tinyiota on 12/27/15.
@@ -19,6 +20,8 @@ public class ChatTopFragment extends BaseFragment {
         ChatTopFragment fragment = new ChatTopFragment();
         Bundle args = new Bundle();
         args.putInt(MainActivity.RECEIVER_ID, receiverID);
+        fragment.setArguments(args);
+        L.e("ChatTopFragment", "Top " + receiverID);
         return fragment;
     }
 

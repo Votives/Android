@@ -19,7 +19,7 @@ public class MainChatMessage {
 
     }
 
-    public MainChatMessage(int receiverID, Date timeCreated, Date DOB, String gender, String name, String messageText, int messageCount) {
+    public MainChatMessage(int receiverID, Date timeCreated, Date DOB, String gender, String name, String messageText, int messageCount, boolean areFriends) {
         this.receiverID = receiverID;
         this.timeCreated = timeCreated;
         this.DOB = DOB;
@@ -27,6 +27,7 @@ public class MainChatMessage {
         this.name = name;
         this.messageText = messageText;
         this.messageCount = messageCount;
+        this.areFriends = areFriends;
     }
 
     public int getReceiverID() {

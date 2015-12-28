@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.votives.R;
 import com.votives.activity.MainActivity;
+import com.votives.utils.L;
 
 /**
  * Created by tinyiota on 12/27/15.
@@ -14,10 +15,12 @@ import com.votives.activity.MainActivity;
 public class ChatBottomFragment extends BaseFragment {
     int receiverID;
 
-    public static ChatTopFragment newInstance(int receiverID){
-        ChatTopFragment fragment = new ChatTopFragment();
+    public static ChatBottomFragment newInstance(int receiverID){
+        ChatBottomFragment fragment = new ChatBottomFragment();
         Bundle args = new Bundle();
         args.putInt(MainActivity.RECEIVER_ID, receiverID);
+        L.e("ChatBottomFragment", "Bottom " + receiverID);
+        fragment.setArguments(args);
         return fragment;
     }
 
