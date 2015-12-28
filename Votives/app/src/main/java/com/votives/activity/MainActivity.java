@@ -43,6 +43,7 @@ public class MainActivity extends FragmentActivity {
 	static FrameLayout otherFragmentsView;
 	ToolbarFragment toolbarFragment;
 	MyPagerListener pageListener;
+	public static final String RECEIVER_ID = "receiverID";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

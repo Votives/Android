@@ -1,5 +1,7 @@
 package com.votives.objects;
 
+import java.util.ArrayList;
+
 /**
  * Created by darkbobo on 12/13/15.
  */
@@ -8,6 +10,7 @@ public class User {
 	String userName;
 	long DOB;
 	String gender;
+	ArrayList<Interest> interests;
 
 	public User(){
 
@@ -50,5 +53,21 @@ public class User {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public void setInterests(ArrayList<Interest> interests){
+		this.interests = interests;
+	}
+
+	public ArrayList<Interest> getInterests(){
+		return interests;
+	}
+
+	public void addInterest(Interest interest){
+		this.interests.add(interest);
+	}
+
+	public void removeInterest(Interest interest){
+		this.interests.remove(interest);
 	}
 }

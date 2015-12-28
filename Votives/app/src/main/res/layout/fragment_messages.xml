@@ -8,4 +8,9 @@
         android:layout_height="fill_parent"
         android:text="Messages Fragment">
     </TextView>
+    <ListView
+        android:id="@+id/message_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    </ListView>
 </LinearLayout>

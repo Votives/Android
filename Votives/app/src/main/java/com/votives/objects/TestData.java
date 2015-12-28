@@ -9,12 +9,14 @@ import java.util.Date;
 public class TestData {
 	public static ArrayList<Interest> interests;
 	public static ArrayList<ChatMessage> messages;
+	public static ArrayList<MainChatMessage> groupMessages;
 	public static ArrayList<User> users;
 	public static TestData data;
 
 	public TestData(){
 		interests = new ArrayList<>();
 		messages = new ArrayList<>();
+		groupMessages = new ArrayList<>();
 		users = new ArrayList<>();
 	}
 
@@ -28,6 +30,14 @@ public class TestData {
 
 	public static ArrayList<User> getUsers(){
 		return users;
+	}
+
+	public static ArrayList<MainChatMessage> getGroupMessages() {
+		return groupMessages;
+	}
+
+	public static void setGroupMessages(ArrayList<MainChatMessage> groupMessages) {
+		TestData.groupMessages = groupMessages;
 	}
 
 	public static TestData getInstance(){
@@ -54,6 +64,6 @@ public class TestData {
 		messages.add(new ChatMessage(4, 1, 3, "your mother", new Date().getTime()));
 		messages.add(new ChatMessage(5, 3, 1, "what about that slut?", new Date().getTime()));
 
-
+		groupMessages.add(new MainChatMessage(2, new Date(), new Date(), "F", "Pam", "hello", 2));
 	}
 }
