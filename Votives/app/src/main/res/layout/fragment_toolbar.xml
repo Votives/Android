@@ -8,18 +8,21 @@
         android:id="@+id/toolbar_interests"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:text="Interests">
     </Button>
     <Button
         android:id="@+id/toolbar_messages"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:text="Messages">
     </Button>
     <Button
         android:id="@+id/toolbar_discover"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:text="Discover">
     </Button>
 </LinearLayout>
