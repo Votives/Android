@@ -13,9 +13,9 @@ import com.votives.utils.L;
 /**
  * Created by darkbobo on 11/19/15.
  */
-public class MessagesMainListener extends MyOnClickListener {
+public class ContactsMainListener extends MyOnClickListener {
 
-	public MessagesMainListener(Context context){
+	public ContactsMainListener(Context context){
 		super(context);
 	}
 

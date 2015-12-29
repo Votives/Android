@@ -18,14 +18,14 @@ import com.votives.fragment.DiscoverMainFragment;
 import com.votives.fragment.InterestMainFragment;
 import com.votives.fragment.InterestUserListFragment;
 import com.votives.fragment.LoginFragment;
-import com.votives.fragment.MessagesMainFragment;
+import com.votives.fragment.ContactsMainFragment;
 import com.votives.fragment.ToolbarFragment;
 import com.votives.listener.CreateUserListener;
 import com.votives.listener.DiscoverMainListener;
 import com.votives.listener.InterestMainListener;
 import com.votives.listener.InterestUserListListener;
 import com.votives.listener.LoginListener;
-import com.votives.listener.MessagesMainListener;
+import com.votives.listener.ContactsMainListener;
 import com.votives.listener.MyOnClickListener;
 import com.votives.listener.MyPagerListener;
 import com.votives.utils.L;
@@ -103,7 +103,7 @@ public class MainActivity extends FragmentActivity {
 		pagerFragments = new ArrayList<>();
 
 		pagerFragments.add(InterestMainFragment.newInstance());
-		pagerFragments.add(MessagesMainFragment.newInstance());
+		pagerFragments.add(ContactsMainFragment.newInstance());
 		pagerFragments.add(DiscoverMainFragment.newInstance());
 
 		otherFragments = new HashMap<>();
@@ -115,7 +115,7 @@ public class MainActivity extends FragmentActivity {
 		listeners.put(ScreenKeys.LOGIN_SCREEN, new LoginListener(this));
 		listeners.put(ScreenKeys.INTERESTS_MAIN, new InterestMainListener(this));
 		listeners.put(ScreenKeys.CREATE_USER, new CreateUserListener(this));
-		listeners.put(ScreenKeys.MESSAGES_MAIN, new MessagesMainListener(this));
+		listeners.put(ScreenKeys.MESSAGES_MAIN, new ContactsMainListener(this));
 		listeners.put(ScreenKeys.DISCOVER_MAIN, new DiscoverMainListener(this));
 		listeners.put(ScreenKeys.INTERESTS_USER_LIST, new InterestUserListListener(this));
 
