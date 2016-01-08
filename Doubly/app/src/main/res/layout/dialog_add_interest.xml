@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/interest_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    </EditText>
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:lines="5"
+        android:maxLines="5"
+        android:hint="Related Keywords.\nSeparate with commas (,).">
+    </EditText>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Radius"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+        <EditText
+            android:id="@+id/interest_radius"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number">
+        </EditText>
+        <!-- add dropdown for km/miles -->
+    </LinearLayout>
+    <RadioButton
+        android:id="@+id/interest_notifications"
+        android:text="Notifications"
+        android:checked="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </RadioButton>
+</LinearLayout>

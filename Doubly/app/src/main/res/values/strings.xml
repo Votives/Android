@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Doubly</string>
+    <string name="database_name">doubly_database</string>
+    <string name="title_activity_chat">ChatActivity</string>
+</resources>
