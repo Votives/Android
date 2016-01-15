@@ -6,10 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.votives.R;
-
-import java.util.List;
-
+import com.doubly.R;
 
 /**
  * A placeholder fragment containing a simple view.

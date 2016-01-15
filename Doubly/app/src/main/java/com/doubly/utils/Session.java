@@ -3,7 +3,8 @@ package com.doubly.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.votives.activity.DoublyApplication;
+import com.doubly.activity.DoublyApplication;
+
 
 /**
  * Created by tinyiota on 12/28/15.

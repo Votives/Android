@@ -1,11 +1,10 @@
 package com.doubly.listener;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.BaseAdapter;
 
-import com.votives.fragment.BaseFragment;
+import com.doubly.fragment.BaseFragment;
 
 import java.util.HashMap;
 /**

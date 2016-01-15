@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.votives.R;
-import com.votives.activity.MainActivity;
-import com.votives.adapter.ChatMessageAdapter;
-import com.votives.objects.TestData;
-import com.votives.utils.L;
+import com.doubly.R;
+import com.doubly.activity.MainActivity;
+import com.doubly.adapter.ChatMessageAdapter;
+import com.doubly.object.TestData;
+import com.doubly.utils.L;
 
 /**
  * A placeholder fragment containing a simple view.

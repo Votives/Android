@@ -4,8 +4,8 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ListView;
 
-import com.votives.adapter.InterestsMainAdapter;
-import com.votives.objects.TestData;
+import com.doubly.adapter.InterestsMainAdapter;
+import com.doubly.object.TestData;
 
 /**
  * Created by darkbobo on 11/17/15.

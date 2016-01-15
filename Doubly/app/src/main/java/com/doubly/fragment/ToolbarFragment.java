@@ -7,11 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.votives.R;
-import com.votives.activity.MainActivity;
-import com.votives.adapter.ScreenKeys;
+import com.doubly.R;
+import com.doubly.activity.MainActivity;
+import com.doubly.adapter.ScreenKeys;
 
 /**
  * Created by darkbobo on 11/19/15.

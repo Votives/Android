@@ -3,9 +3,8 @@ package com.doubly.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.view.View;
 
-import com.votives.activity.MainActivity;
+import com.doubly.activity.MainActivity;
 
 /**
  * Created by darkbobo on 11/19/15.

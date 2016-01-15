@@ -5,9 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.votives.R;
-import com.votives.activity.MainActivity;
-import com.votives.utils.L;
+import com.doubly.R;
+import com.doubly.activity.MainActivity;
+import com.doubly.utils.L;
 
 /**
  * Created by tinyiota on 12/27/15.

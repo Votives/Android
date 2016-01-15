@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.votives.R;
+import com.doubly.R;
 
 /**
  * Created by darkbobo on 12/13/15.

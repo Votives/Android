@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.votives.R;
-import com.votives.adapter.MessagesMainAdapter;
-import com.votives.objects.TestData;
+import com.doubly.R;
+import com.doubly.adapter.MessagesMainAdapter;
+import com.doubly.object.TestData;
 
 /**
  * Created by darkbobo on 11/19/15.

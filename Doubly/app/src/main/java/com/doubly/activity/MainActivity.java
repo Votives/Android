@@ -9,26 +9,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.votives.R;
-import com.votives.adapter.PagerAdapter;
-import com.votives.adapter.ScreenKeys;
-import com.votives.fragment.BaseFragment;
-import com.votives.fragment.CreateUserFragment;
-import com.votives.fragment.DiscoverMainFragment;
-import com.votives.fragment.InterestMainFragment;
-import com.votives.fragment.InterestUserListFragment;
-import com.votives.fragment.LoginFragment;
-import com.votives.fragment.ContactsMainFragment;
-import com.votives.fragment.ToolbarFragment;
-import com.votives.listener.CreateUserListener;
-import com.votives.listener.DiscoverMainListener;
-import com.votives.listener.InterestMainListener;
-import com.votives.listener.InterestUserListListener;
-import com.votives.listener.LoginListener;
-import com.votives.listener.ContactsMainListener;
-import com.votives.listener.MyOnClickListener;
-import com.votives.listener.MyPagerListener;
-import com.votives.utils.L;
+import com.doubly.R;
+import com.doubly.adapter.PagerAdapter;
+import com.doubly.adapter.ScreenKeys;
+import com.doubly.fragment.BaseFragment;
+import com.doubly.fragment.ContactsMainFragment;
+import com.doubly.fragment.CreateUserFragment;
+import com.doubly.fragment.DiscoverMainFragment;
+import com.doubly.fragment.InterestMainFragment;
+import com.doubly.fragment.InterestUserListFragment;
+import com.doubly.fragment.LoginFragment;
+import com.doubly.fragment.ToolbarFragment;
+import com.doubly.listener.ContactsMainListener;
+import com.doubly.listener.CreateUserListener;
+import com.doubly.listener.DiscoverMainListener;
+import com.doubly.listener.InterestMainListener;
+import com.doubly.listener.InterestUserListListener;
+import com.doubly.listener.LoginListener;
+import com.doubly.listener.MyOnClickListener;
+import com.doubly.listener.MyPagerListener;
+import com.doubly.utils.L;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -80,7 +80,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu_main, menu);
+		//getMenuInflater().inflate(R.menu.menu_main, menu);
 		return true;
 	}
 
@@ -92,9 +92,9 @@ public class MainActivity extends FragmentActivity {
 		int id = item.getItemId();
 
 		//noinspection SimplifiableIfStatement
-		if (id == R.id.action_settings) {
-			return true;
-		}
+		//if (id == R.id.action_settings) {
+		//	return true;
+		//}
 
 		return super.onOptionsItemSelected(item);
 	}

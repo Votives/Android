@@ -5,17 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.votives.R;
-import com.votives.activity.ChatActivity;
-import com.votives.activity.MainActivity;
-import com.votives.objects.ChatMessage;
-import com.votives.objects.MainChatMessage;
-import com.votives.objects.User;
-import com.votives.utils.L;
+import com.doubly.R;
+import com.doubly.activity.ChatActivity;
+import com.doubly.activity.MainActivity;
+import com.doubly.object.MainChatMessage;
+import com.doubly.utils.L;
 
 import java.util.ArrayList;
 import java.util.Calendar;

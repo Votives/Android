@@ -2,9 +2,10 @@ package com.doubly.listener;
 
 import android.support.v4.view.ViewPager;
 
-import com.votives.R;
 import android.support.v4.app.FragmentManager;
-import com.votives.fragment.ToolbarFragment;
+
+import com.doubly.R;
+import com.doubly.fragment.ToolbarFragment;
 
 /**
  * Created by darkbobo on 11/19/15.

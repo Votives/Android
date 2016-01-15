@@ -1,6 +1,6 @@
 package com.doubly.adapter;
 
-import com.votives.utils.L;
+import com.doubly.utils.L;
 
 /**
  * Created by darkbobo on 12/13/15.
