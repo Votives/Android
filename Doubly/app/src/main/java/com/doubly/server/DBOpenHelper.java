@@ -122,11 +122,12 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 				Interest interest = new Interest();
 				interest.setInterestID(model.getInt(model.getColumnIndex("InterestID")));
 				interest.setInterestTitle(model.getString(model.getColumnIndex("InterestName")));
+				interests.add(interest);
+				model.moveToNext();
 			}
 		}
 		return interests;
 	}
-
 
 	public void init(){
 		StringBuilder sqlA = new StringBuilder();
@@ -157,6 +158,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		sqlA.append("   _id INTEGER PRIMARY KEY AUTOINCREMENT ");
 		sqlA.append("   UserID INTEGER ");
 		sqlA.append(" , InterestID INTEGER ");
+		sqlA.append(" , Radius ");
 		sqlA.append(")");
 		db.execSQL(sqlA.toString());
 
@@ -192,6 +194,24 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		db.execSQL(sqlA.toString());
 
 		sqlA.setLength(0);
+	}
+
+	public void addUserInterest(int userID, int interestID, int radius){
+		StringBuilder sqlA = new StringBuilder();
+		sqlA.setLength(0);
+		sqlA.append("INSERT INTO UserInterests ");
+		sqlA.append("( ");
+		sqlA.append("   UserID ");
+		sqlA.append(" , InterestID ");
+		sqlA.append(" , Radius ");
+		sqlA.append(") ");
+		sqlA.append(" VALUES ");
+		sqlA.append("( ");
+		sqlA.append("   " + userID + ",  " + interestID + ", " + radius + " ");
+		sqlA.append(");");
+		db.execSQL(sqlA.toString());
+		sqlA.setLength(0);
+		sqlA = null;
 	}
 
 	public void initTestData(){
@@ -237,6 +257,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		sqlA.append(") ");
 		db.execSQL(sqlA.toString());
 		sqlA.setLength(0);
+
+		addUserInterest(1, 1, 5);
 
 		sqlA.append("INSERT INTO Messages ");
 		sqlA.append("( ");
