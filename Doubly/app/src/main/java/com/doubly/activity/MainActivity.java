@@ -52,6 +52,7 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		Session.setInt(SessionKeys.PREFFS_USER_ID, 1); //hardcoding jim
 		manager = getSupportFragmentManager();
 		initMVC();
 

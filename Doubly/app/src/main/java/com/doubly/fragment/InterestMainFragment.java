@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.doubly.R;
@@ -37,5 +38,13 @@ public class InterestMainFragment extends BaseFragment {
 	public void registerViews(){
 		listener.registerView("interestList", interestList);
 		interestList.setOnItemClickListener(listener);
+		listener.registerView("addInterestButton",rootView.findViewById(R.id.add_interest) );
 	}
+
+//	final Button button = (Button) findViewById(R.id.add_interest);
+//	button.setOnClickListener(new View.OnClickListener() {
+//		public void onClick(View v) {
+//			// Perform action on click
+//		}
+//	});
 }
