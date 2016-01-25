@@ -29,6 +29,8 @@ import com.doubly.listener.LoginListener;
 import com.doubly.listener.MyOnClickListener;
 import com.doubly.listener.MyPagerListener;
 import com.doubly.utils.L;
+import com.doubly.utils.Session;
+import com.doubly.utils.SessionKeys;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -36,5 +36,6 @@ public class InterestMainFragment extends BaseFragment {
 	@Override
 	public void registerViews(){
 		listener.registerView("interestList", interestList);
+		interestList.setOnItemClickListener(listener);
 	}
 }
