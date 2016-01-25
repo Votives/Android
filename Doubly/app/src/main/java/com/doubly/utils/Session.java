@@ -24,4 +24,10 @@ public class Session {
         }
         return result;
     }
+    public static void setInt(String key, int value)
+    {
+        SharedPreferences.Editor preferences = getShared().edit();
+        preferences.putInt(key, value);
+        preferences.commit();
+    }
 }

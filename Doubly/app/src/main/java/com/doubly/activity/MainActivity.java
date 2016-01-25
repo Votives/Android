@@ -29,6 +29,8 @@ import com.doubly.listener.LoginListener;
 import com.doubly.listener.MyOnClickListener;
 import com.doubly.listener.MyPagerListener;
 import com.doubly.utils.L;
+import com.doubly.utils.Session;
+import com.doubly.utils.SessionKeys;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -50,6 +52,7 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		Session.setInt(SessionKeys.PREFFS_USER_ID, 1); //hardcoding jim
 		manager = getSupportFragmentManager();
 		initMVC();
 
