@@ -16,7 +16,7 @@ import com.doubly.object.TestData;
 /**
  * Created by darkbobo on 11/17/15.
  */
-public class InterestMainListener extends MyOnClickListener implements AdapterView.OnItemClickListener {
+public class InterestMainListener extends MyOnClickListener {
 
 	public InterestMainListener(Context context){
 		super(context);
