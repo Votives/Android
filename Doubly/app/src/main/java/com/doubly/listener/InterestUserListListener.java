@@ -5,6 +5,10 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import com.doubly.adapter.InterestUserAdapter;
+import com.doubly.object.User;
+import com.doubly.server.DBOpenHelper;
+
+import java.util.ArrayList;
 
 /**
  * Created by darkbobo on 12/17/15.
@@ -27,6 +31,6 @@ public class InterestUserListListener extends MyOnClickListener {
 
 	@Override
 	public void initViews() {
-		InterestUserAdapter adapter = new InterestUserAdapter();
+		InterestUserAdapter adapter = new InterestUserAdapter(context, new ArrayList<User>());
 	}
 }

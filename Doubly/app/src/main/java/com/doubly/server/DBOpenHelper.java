@@ -69,7 +69,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		return messages;
 	}
 
-	public ArrayList<ChatMessage> getChatMessageBySender(int senderID){
+	public ArrayList<ChatMessage> loadChatMessages(){
 		StringBuilder sqlA = new StringBuilder();
 		sqlA.setLength(0);
 		sqlA.append("SELECT ");
@@ -81,8 +81,6 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		sqlA.append(" , Messages.SenderID ");
 		sqlA.append(" , Messages.ReceiverID ");
 		sqlA.append("FROM Messages ");
-		sqlA.append("WHERE Messages.ReceiverID = " + senderID + " ");
-		sqlA.append("   OR Messages.SenderID = " + 1 + " ");
 		sqlA.append("INNER JOIN Users ON Messages.ReceiverID = Users.UserID ");
 		sqlA.append("ORDER BY Messages.TimeCreated ");
 		ArrayList<ChatMessage> messages = new ArrayList<>();

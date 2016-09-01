@@ -26,8 +26,6 @@ public class ContactsMainFragment extends BaseFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		rootView = inflater.inflate(R.layout.fragment_messages, container, false);
 		messagesList = (ListView)rootView.findViewById(R.id.message_list);
-		adapter = new MessagesMainAdapter(getActivity(), TestData.getInstance().getGroupMessages());
-		messagesList.setAdapter(adapter);
 		return rootView;
 	}
 

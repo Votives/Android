@@ -137,5 +137,8 @@ public class MainActivity extends FragmentActivity {
 
 		toolbarFragment = ToolbarFragment.newInstance(0);
 		manager.beginTransaction().add(R.id.tool_bar, toolbarFragment).commit();
+
+		// TODO: check to see if user is logged in, if not, go to login screen
+
 	}
 }
