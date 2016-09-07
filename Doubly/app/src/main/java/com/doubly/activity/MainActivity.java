@@ -47,6 +47,7 @@ public class MainActivity extends FragmentActivity {
 	MyPagerListener pageListener;
 	public static final String CHAT_INFO = "chat_info";
 	public static final String RECEIVER_ID = "receiver_id";
+	public static boolean mainIsShowing;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,11 +73,13 @@ public class MainActivity extends FragmentActivity {
 			pager.setVisibility(View.GONE);
 			otherFragmentsView.setVisibility(View.VISIBLE);
 			manager.beginTransaction().add(R.id.fragment, otherFragments.get(newScreen)).commit();
+			mainIsShowing = false;
 		}else{
 			L.e(newScreen);
 			pager.setVisibility(View.VISIBLE);
 			otherFragmentsView.setVisibility(View.GONE);
 			pager.setCurrentItem(ScreenKeys.getPagerScreenLocation(newScreen));
+			mainIsShowing = true;
 		}
 	}
 
@@ -140,5 +143,14 @@ public class MainActivity extends FragmentActivity {
 
 		// TODO: check to see if user is logged in, if not, go to login screen
 
+	}
+
+	@Override
+	public void onBackPressed(){
+		if(mainIsShowing){
+			super.onBackPressed();
+		}else{
+			changeScreen("ANYTHING");
+		}
 	}
 }

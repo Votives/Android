@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by tinyiota on 12/27/15.
  */
-public class MainChatMessage {
+public class MainChatMessage extends BaseObject {
     int receiverID;
     Date timeCreated;
     Date DOB;

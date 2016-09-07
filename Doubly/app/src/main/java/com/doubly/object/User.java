@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by darkbobo on 12/13/15.
  */
-public class User {
+public class User extends BaseObject {
 	int userID;
 	String userName;
 	long DOB;

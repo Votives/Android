@@ -3,7 +3,7 @@ package com.doubly.object;
 /**
  * Created by tinyiota on 12/27/15.
  */
-public class GPS {
+public class GPS  extends BaseObject{
     double latitude;
     double longitude;
 

@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.doubly.R;
+import com.doubly.object.BaseObject;
 import com.doubly.object.ChatMessage;
 import com.doubly.object.Interest;
 import com.doubly.object.MainChatMessage;
@@ -290,5 +291,28 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
 	}
 
-
+	public Cursor query(String tableName, ArrayList<String> attributeList, String whereClause){
+		if(attributeList == null){
+			attributeList = new ArrayList<>();
+			attributeList.add("*");
+		}
+		StringBuilder sqlA = new StringBuilder();
+		sqlA.setLength(0);
+		sqlA.append("SELECT");
+		for(int i = 0; i < attributeList.size(); i++){
+			sqlA.append(" ").append(attributeList.get(i)).append(" ");
+			if(i < attributeList.size() - 1){
+				sqlA.append(", ");
+			}
+		}
+		sqlA.append("FROM ").append(tableName);
+		if(!whereClause.equals("")) {
+			sqlA.append("WHERE ").append(whereClause);
+		}
+		Cursor model = db.rawQuery(sqlA.toString(), null, null);
+		sqlA.setLength(0);
+		sqlA = null;
+		model.moveToFirst();
+		return model;
+	}
 }

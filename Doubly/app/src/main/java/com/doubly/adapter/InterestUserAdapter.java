@@ -5,6 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.doubly.R;
+import com.doubly.object.Interest;
 import com.doubly.object.User;
 
 import java.util.ArrayList;
@@ -37,7 +39,23 @@ public class InterestUserAdapter extends MyBaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        ViewHolder holder;
+
+        // pasted
+        if(convertView == null){
+            convertView = inflater.inflate(R.layout.row_interest, parent, false);
+            holder = new ViewHolder();
+            holder.interestsTitle = (TextView)convertView.findViewById(R.id.interests_title);
+            holder.interestsMatching = (TextView)convertView.findViewById(R.id.interests_matching);
+            convertView.setTag(holder);
+        }else{
+            holder = (ViewHolder)convertView.getTag();
+        }
+
+        Interest interest = (Interest)getItem(position);
+        holder.interestsTitle.setText(interest.getInterestTitle());
+        holder.interestsMatching.setText(Integer.toString(interest.getInterestMatchCount()));
+        return convertView;
     }
 
     private class ViewHolder{

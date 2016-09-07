@@ -3,7 +3,7 @@ package com.doubly.object;
 /**
  * Created by darkbobo on 12/13/15.
  */
-public class Interest {
+public class Interest extends BaseObject {
 	private int interestID;
 	private String interestTitle;
 	private int interestMatchCount;

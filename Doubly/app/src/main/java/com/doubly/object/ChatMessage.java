@@ -3,7 +3,7 @@ package com.doubly.object;
 /**
  * Created by darkbobo on 12/13/15.
  */
-public class ChatMessage {
+public class ChatMessage extends BaseObject{
 	int messageID;
 	int senderID;
 	int receiverID;
