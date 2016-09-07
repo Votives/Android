@@ -12,13 +12,13 @@ import java.util.HashMap;
 /**
  * Created by darkbobo on 11/17/15.
  */
-public class MyOnClickListener implements View.OnClickListener, AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {
+public class BaseListener implements View.OnClickListener, AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {
 	HashMap<String,View> views;
 	BaseFragment fragment;
 	BaseAdapter adapter;
 	Context context;
 
-	public MyOnClickListener(Context context){
+	public BaseListener(Context context){
 		this.context = context;
 		views = new HashMap<>();
 	}

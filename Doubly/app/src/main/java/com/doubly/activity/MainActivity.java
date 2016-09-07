@@ -26,7 +26,7 @@ import com.doubly.listener.DiscoverMainListener;
 import com.doubly.listener.InterestMainListener;
 import com.doubly.listener.InterestUserListListener;
 import com.doubly.listener.LoginListener;
-import com.doubly.listener.MyOnClickListener;
+import com.doubly.listener.BaseListener;
 import com.doubly.listener.MyPagerListener;
 import com.doubly.utils.L;
 import com.doubly.utils.Session;
@@ -39,7 +39,7 @@ public class MainActivity extends FragmentActivity {
 	private static FragmentManager manager;
 	public static ArrayList<BaseFragment> pagerFragments;
 	public static HashMap<String,BaseFragment> otherFragments;
-	public HashMap<String,MyOnClickListener> listeners;
+	public HashMap<String,BaseListener> listeners;
 	PagerAdapter pagerAdapter;
 	static ViewPager pager;
 	static FrameLayout otherFragmentsView;

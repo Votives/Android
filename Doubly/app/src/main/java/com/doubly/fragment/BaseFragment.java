@@ -4,14 +4,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
-import com.doubly.listener.MyOnClickListener;
+import com.doubly.listener.BaseListener;
 
 /**
  * Created by darkbobo on 11/17/15.
  */
 
 public class BaseFragment extends Fragment {
-	MyOnClickListener listener;
+	BaseListener listener;
 	View rootView;
 
 	public BaseFragment(){}
@@ -21,7 +21,7 @@ public class BaseFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 	}
 
-	public void setListener(MyOnClickListener listener){
+	public void setListener(BaseListener listener){
 		this.listener = listener;
 	}
 

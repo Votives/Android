@@ -16,7 +16,7 @@ import com.doubly.object.TestData;
 /**
  * Created by darkbobo on 11/17/15.
  */
-public class InterestMainListener extends MyOnClickListener {
+public class InterestMainListener extends BaseListener {
 
 	public InterestMainListener(Context context){
 		super(context);

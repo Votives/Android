@@ -6,7 +6,7 @@ import android.view.View;
 /**
  * Created by darkbobo on 12/13/15.
  */
-public class DiscoverMainListener extends MyOnClickListener {
+public class DiscoverMainListener extends BaseListener {
 	public DiscoverMainListener(Context context) {
 		super(context);
 	}
@@ -14,5 +14,10 @@ public class DiscoverMainListener extends MyOnClickListener {
 	@Override
 	public void onClick(View v){
 
+	}
+
+	@Override
+	public void initViews() {
+		super.initViews();
 	}
 }

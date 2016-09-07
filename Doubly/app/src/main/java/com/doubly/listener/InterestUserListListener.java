@@ -6,14 +6,13 @@ import android.widget.AdapterView;
 
 import com.doubly.adapter.InterestUserAdapter;
 import com.doubly.object.User;
-import com.doubly.server.DBOpenHelper;
 
 import java.util.ArrayList;
 
 /**
  * Created by darkbobo on 12/17/15.
  */
-public class InterestUserListListener extends MyOnClickListener {
+public class InterestUserListListener extends BaseListener {
 
 	public InterestUserListListener(Context context) {
 		super(context);

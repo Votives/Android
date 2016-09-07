@@ -10,7 +10,7 @@ import com.doubly.object.TestData;
 /**
  * Created by darkbobo on 11/19/15.
  */
-public class ContactsMainListener extends MyOnClickListener {
+public class ContactsMainListener extends BaseListener {
 
 	public ContactsMainListener(Context context){
 		super(context);
