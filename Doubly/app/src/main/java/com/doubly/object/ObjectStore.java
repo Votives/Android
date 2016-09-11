@@ -16,15 +16,13 @@ import java.util.ArrayList;
  *      Should load database into instance (if not loaded already)
  */
 public class ObjectStore {
-    ArrayList<ChatMessage> messages;
-    ArrayList<User> contactUsers;
-    ArrayList<User> discoverUsers;
-    ArrayList<Interest> interests;
+    User user; // the user that is using this
+    DBOpenHelper helper;
     ArrayList<Interest> discoverInterests;
 
     public void init(){
         // load db info into os
-        DBOpenHelper helper = new DBOpenHelper(DoublyApplication.getContext());
+        helper = new DBOpenHelper(DoublyApplication.getContext());
         // load users
 
         // load interests
@@ -34,8 +32,13 @@ public class ObjectStore {
         helper.close();
     }
 
-    public ArrayList<ChatMessage> getMessages() {
-        return messages;
+    public void insertInterest(Interest i){
+        //user.insertInterest(i);
+        //helper.insertInterest(i);
+    }
+
+    public ArrayList<Interest> getUserInterests(){
+        return user.getInterests();
     }
 
     public ArrayList<MainChatMessage> getMainChatMessages(){
@@ -51,41 +54,5 @@ public class ObjectStore {
 
         // insert into database
         return false;
-    }
-
-    public void setMessages(ArrayList<ChatMessage> messages) {
-        this.messages = messages;
-    }
-
-    public ArrayList<User> getContactUsers() {
-        return contactUsers;
-    }
-
-    public void setContactUsers(ArrayList<User> contactUsers) {
-        this.contactUsers = contactUsers;
-    }
-
-    public ArrayList<User> getDiscoverUsers() {
-        return discoverUsers;
-    }
-
-    public void setDiscoverUsers(ArrayList<User> discoverUsers) {
-        this.discoverUsers = discoverUsers;
-    }
-
-    public ArrayList<Interest> getInterests() {
-        return interests;
-    }
-
-    public void setInterests(ArrayList<Interest> interests) {
-        this.interests = interests;
-    }
-
-    public ArrayList<Interest> getDiscoverInterests() {
-        return discoverInterests;
-    }
-
-    public void setDiscoverInterests(ArrayList<Interest> discoverInterests) {
-        this.discoverInterests = discoverInterests;
     }
 }

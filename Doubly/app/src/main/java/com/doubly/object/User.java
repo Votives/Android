@@ -11,6 +11,7 @@ public class User extends BaseObject {
 	long DOB;
 	String gender;
 	ArrayList<Interest> interests;
+	ArrayList<User> contacts;
 
 	public User(){
 

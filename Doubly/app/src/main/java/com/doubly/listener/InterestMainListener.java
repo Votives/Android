@@ -24,13 +24,10 @@ public class InterestMainListener extends BaseListener {
 
 	@Override
 	public void onClick(View v){
-		switch (v.getId())
-		{
-			case R.id.add_interest:
-				AddInterestDialog iDialog = new AddInterestDialog(context);
-				iDialog.init();
-				iDialog.show();
-				break;
+		if(v.equals(views.get("addInterestButton"))){
+			AddInterestDialog iDialog = new AddInterestDialog(context);
+			iDialog.init();
+			iDialog.show();
 		}
 	}
 

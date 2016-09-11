@@ -46,6 +46,7 @@ public class GetUsers extends AsyncTask<String,Void,Boolean> {
             try {
                 JSONObject object = new JSONObject(builder.toString());
                 Session.setInt(SessionKeys.PREFFS_USER_ID, object.getInt("UserID"));
+
                 success = true;
             } catch (JSONException e) {
                 e.printStackTrace();
