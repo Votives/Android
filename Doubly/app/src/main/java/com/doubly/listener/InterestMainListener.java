@@ -42,6 +42,6 @@ public class InterestMainListener extends BaseListener {
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		Toast.makeText(context, position + " clicked.", Toast.LENGTH_SHORT).show();
-		MainActivity.changeScreen(ScreenKeys.INTERESTS_USER_LIST);
+		MainActivity.fs.changeScreen(ScreenKeys.INTERESTS_USER_LIST);
 	}
 }
