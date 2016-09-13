@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.doubly.R;
+import com.doubly.activity.MainActivity;
+import com.doubly.fragment.InterestMainFragment;
 import com.doubly.object.Interest;
 
 import java.util.ArrayList;
@@ -50,6 +52,7 @@ public class InterestsMainAdapter extends MyBaseAdapter {
 		}
 
 		Interest interest = (Interest)getItem(position);
+		//interestListener.onInterestSelected(interest);
 		holder.interestsTitle.setText(interest.getInterestTitle());
 		holder.interestsMatching.setText(Integer.toString(interest.getInterestMatchCount()));
 		return convertView;

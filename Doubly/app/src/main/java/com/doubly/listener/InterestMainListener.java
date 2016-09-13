@@ -11,13 +11,14 @@ import com.doubly.R;
 import com.doubly.adapter.InterestsMainAdapter;
 import com.doubly.adapter.ScreenKeys;
 import com.doubly.dialog.AddInterestDialog;
+import com.doubly.fragment.InterestMainFragment;
+import com.doubly.object.Interest;
 import com.doubly.object.TestData;
 
 /**
  * Created by darkbobo on 11/17/15.
  */
 public class InterestMainListener extends BaseListener {
-
 	public InterestMainListener(Context context){
 		super(context);
 	}
@@ -33,7 +34,7 @@ public class InterestMainListener extends BaseListener {
 
 	@Override
 	public void initViews() {
-		// code to add interests from DB
+		// code to add interests from ObjectStore
 		adapter = new InterestsMainAdapter(context, TestData.getInstance().getInterests());
 		((ListView)views.get("interestList")).setAdapter(adapter);
 		((Button)views.get("addInterestButton")).setOnClickListener(this);
@@ -42,6 +43,7 @@ public class InterestMainListener extends BaseListener {
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		Toast.makeText(context, position + " clicked.", Toast.LENGTH_SHORT).show();
-		MainActivity.fs.changeScreen(ScreenKeys.INTERESTS_USER_LIST);
+		//MainActivity.fs.changeScreen(ScreenKeys.INTERESTS_USER_LIST);
+		MainActivity.fs.onRowSelected(ScreenKeys.INTERESTS_MAIN, (Interest)parent.getItemAtPosition(position));
 	}
 }

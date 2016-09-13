@@ -8,13 +8,15 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.doubly.R;
+import com.doubly.activity.DoublyApplication;
+import com.doubly.listener.InterestMainListener;
+import com.doubly.object.Interest;
 
 /**
  * A placeholder fragment containing a simple view.
  */
 public class InterestMainFragment extends BaseFragment {
 	ListView interestList;
-
 
 	public InterestMainFragment() {
 	}
@@ -37,7 +39,7 @@ public class InterestMainFragment extends BaseFragment {
 	@Override
 	public void registerViews(){
 		listener.registerView("interestList", interestList);
-		interestList.setOnItemClickListener(listener);
+		//interestList.setOnItemClickListener(listener);
 		listener.registerView("addInterestButton",rootView.findViewById(R.id.add_interest) );
 	}
 

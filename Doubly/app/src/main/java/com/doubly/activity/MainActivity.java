@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.doubly.R;
 import com.doubly.adapter.PagerAdapter;
@@ -29,6 +30,7 @@ import com.doubly.listener.InterestUserListListener;
 import com.doubly.listener.LoginListener;
 import com.doubly.listener.BaseListener;
 import com.doubly.listener.MyPagerListener;
+import com.doubly.object.Interest;
 import com.doubly.object.ObjectStore;
 import com.doubly.utils.L;
 import com.doubly.utils.Session;

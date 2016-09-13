@@ -4,7 +4,9 @@ import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
 
+import com.doubly.activity.MainActivity;
 import com.doubly.adapter.InterestUserAdapter;
+import com.doubly.adapter.ScreenKeys;
 import com.doubly.object.User;
 
 import java.util.ArrayList;
@@ -25,7 +27,7 @@ public class InterestUserListListener extends BaseListener {
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+		MainActivity.fs.onRowSelected(ScreenKeys.INTERESTS_USER_LIST, (User)parent.getItemAtPosition(position));
 	}
 
 	@Override

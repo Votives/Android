@@ -3,6 +3,8 @@ package com.doubly.listener;
 import android.content.Context;
 import android.view.View;
 
+import com.doubly.activity.MainActivity;
+
 /**
  * Created by darkbobo on 11/19/15.
  */
@@ -14,6 +16,7 @@ public class CreateUserListener extends BaseListener {
 	@Override
 	public void onClick(View v){
 		//if(v.equals(views.get("submitButton")))
+
 	}
 
 	@Override

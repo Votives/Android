@@ -17,6 +17,7 @@ import com.doubly.listener.InterestMainListener;
 import com.doubly.listener.InterestUserListListener;
 import com.doubly.listener.LoginListener;
 import com.doubly.listener.MyPagerListener;
+import com.doubly.object.BaseObject;
 import com.doubly.utils.L;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ import java.util.HashMap;
 /**
  * Created by tinyiota on 9/11/16.
  */
-public class FragmentStore {
+public class FragmentStore implements BaseFragment.OnRowSelectedListener, BaseFragment.OnButtonScreenChangeListener{
     ToolbarFragment toolbarFragment;
     MyPagerListener pageListener;
     private FragmentManager manager;
@@ -36,12 +37,14 @@ public class FragmentStore {
     PagerAdapter pagerAdapter;
     FrameLayout supportFragmentView;
     boolean mainIsShowing;
+    public static BaseFragment.OnRowSelectedListener rowSelectedListener;
 
     public FragmentStore(){
         pagerFragments = new ArrayList<>();
         supportFragments = new HashMap<>();
         listeners = new HashMap<>();
         mainIsShowing = true;
+        rowSelectedListener = this;
     }
 
     public void setFragmentManager(FragmentManager manager){
@@ -120,5 +123,22 @@ public class FragmentStore {
             pager.setCurrentItem(ScreenKeys.getPagerScreenLocation(newScreen));
             mainIsShowing = true;
         }
+    }
+
+    // to handle when a user selects a row on a listview
+    // and therefore the screen changes
+    // do not interact with the ObjectStore here
+    @Override
+    public void onRowSelected(String screenKey, BaseObject object) {
+
+    }
+
+    // to handle button screen swaps
+    //      like when the user selects the button to create a user
+    //      or when the user selects the button to add a new interest
+    // do not interact with the ObjectStore here
+    @Override
+    public void onButtonScreenChanged(String oldScreen, String newScreen) {
+
     }
 }
