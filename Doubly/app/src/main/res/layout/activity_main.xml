@@ -15,6 +15,34 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
         </FrameLayout>
+        <LinearLayout
+            android:id="@+id/chat_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="10">
+            <FrameLayout
+                android:id="@+id/chat_top_fragment"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/chat_body_fragment"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="8"
+                android:stackFromBottom="true"
+                android:transcriptMode="normal"
+                android:layout_gravity="bottom">
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/chat_bottom_fragment"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+            </FrameLayout>
+        </LinearLayout>
     </FrameLayout>
     <FrameLayout
         android:id="@+id/tool_bar"

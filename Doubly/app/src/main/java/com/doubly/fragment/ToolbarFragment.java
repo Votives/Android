@@ -60,11 +60,11 @@ public class ToolbarFragment extends Fragment implements View.OnClickListener{
 	@Override
 	public void onClick(View v) {
 		if(v.equals(messages)){
-			MainActivity.fs.changeScreen(ScreenKeys.MESSAGES_MAIN);
+			MainActivity.fs.changeScreen(null, ScreenKeys.MESSAGES_MAIN);
 		}else if(v.equals(interests)){
-			MainActivity.fs.changeScreen(ScreenKeys.INTERESTS_MAIN);
+			MainActivity.fs.changeScreen(null, ScreenKeys.INTERESTS_MAIN);
 		}else if(v.equals(discover)){
-			MainActivity.fs.changeScreen(ScreenKeys.DISCOVER_MAIN);
+			MainActivity.fs.changeScreen(null, ScreenKeys.DISCOVER_MAIN);
 		}
 	}
 }

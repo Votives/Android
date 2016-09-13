@@ -12,6 +12,7 @@ public class ScreenKeys {
 	public static String MESSAGES_MAIN = "messagesMain";
 	public static String DISCOVER_MAIN = "discoverMain";
 	public static String INTERESTS_USER_LIST = "interestsUserList";
+	public static String MESSAGES_WITH_USER = "messagesWithUser";
 
 	public ScreenKeys(){
 

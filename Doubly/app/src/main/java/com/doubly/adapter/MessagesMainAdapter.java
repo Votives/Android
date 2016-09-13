@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.doubly.R;
-import com.doubly.activity.ChatActivity;
 import com.doubly.activity.MainActivity;
 import com.doubly.object.MainChatMessage;
 import com.doubly.utils.L;
@@ -68,17 +67,6 @@ public class MessagesMainAdapter extends MyBaseAdapter{
         }
         holder.dateTime.setText(String.valueOf(message.getTimeCreated()));
         holder.messageSnippet.setText(message.getMessageText());
-        holder.container.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(context, ChatActivity.class);
-                Bundle b = new Bundle();
-                b.putInt(MainActivity.RECEIVER_ID, message.getReceiverID());
-                i.putExtra(MainActivity.CHAT_INFO, b);
-                context.startActivity(i);
-                L.e("MessageMainListener", "OnItemClick " + message.getName());
-            }
-        });
 
         L.e(message.getName());
         return convertView;

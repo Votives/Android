@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.doubly.R;
@@ -52,14 +53,16 @@ public class MainActivity extends FragmentActivity {
 		Session.setInt(SessionKeys.PREFFS_USER_ID, 1); //hardcoding jim
 		ViewPager pager = (ViewPager)findViewById(R.id.main_pager);
 		FrameLayout supportFragmentView = (FrameLayout)findViewById(R.id.fragment);
+		LinearLayout chatContainer = (LinearLayout)findViewById(R.id.chat_container);
 		fs.setFragmentManager(getSupportFragmentManager());
 		fs.setPager(pager);
 		fs.setSupportFragmentView(supportFragmentView);
+		fs.setChatContainer(chatContainer);
 		fs.initStore();
 	}
 
 	@Override
 	public void onBackPressed(){
-		super.onBackPressed();
+		// add code to pop from fs backstack
 	}
 }
