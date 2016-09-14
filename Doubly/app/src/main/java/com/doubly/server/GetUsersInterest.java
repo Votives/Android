@@ -16,16 +16,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by tinyiota on 8/19/16.
+ * Created by tinyiota on 9/13/16.
  */
-public class GetUsers extends AsyncTask<String,Void,Boolean> {
+public class GetUsersInterest extends AsyncTask<String,Void,Boolean> {
     @Override
     protected Boolean doInBackground(String... params) {
         HttpURLConnection connection = null;
         StringBuilder builder = new StringBuilder();
         try {
             //URL url = new URL(params[0]);
-            URL url = new URL("http://ec2-52-42-244-41.us-west-2.compute.amazonaws.com/get_users/");
+            URL url = new URL("http://ec2-52-42-244-41.us-west-2.compute.amazonaws.com/get_users_interests/1");
             connection = (HttpURLConnection)url.openConnection();
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line = "";
@@ -41,13 +41,12 @@ public class GetUsers extends AsyncTask<String,Void,Boolean> {
                 connection.disconnect();
             }
         }
-        L.e("GetUsers");
+        L.e("GetUsersInterests");
         boolean success = false;
         if(!builder.toString().equals("DNE")){
             try {
                 JSONObject object = new JSONObject(builder.toString());
-                Session.setInt(SessionKeys.PREFFS_USER_ID, object.getInt("UserID"));
-
+                Session.setInt(SessionKeys.PREFFS_USER_ID, object.getInt("InterestID"));
                 success = true;
             } catch (JSONException e) {
                 e.printStackTrace();

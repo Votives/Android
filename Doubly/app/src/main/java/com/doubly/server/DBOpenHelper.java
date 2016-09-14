@@ -132,61 +132,63 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		sqlA.setLength(0);
 		sqlA.append("CREATE TABLE IF NOT EXISTS Users ");
 		sqlA.append("(");
-		sqlA.append("   _id INTEGER PRIMARY KEY AUTOINCREMENT ");
 		sqlA.append(" , UserID INTEGER ");
 		sqlA.append(" , UserName TEXT ");
-		sqlA.append(" , DOB DATETIME");
+		sqlA.append(" , Email TEXT ");
+		sqlA.append(" , DOB DATETIME ");
 		sqlA.append(" , Gender TEXT ");
-		sqlA.append(")");
-		db.execSQL(sqlA.toString());
-
-		sqlA.setLength(0);
-		sqlA.append("CREATE TABLE IF NOT EXISTS UsersFriends ");
-		sqlA.append("(");
-		sqlA.append("   _id INTEGER PRIMARY KEY AUTOINCREMENT ");
-		sqlA.append(" , UserID INTEGER ");
-		sqlA.append(" , FriendUserID INTEGER ");
-		sqlA.append(" , FriendStatus TEXT ");
-		sqlA.append(")");
-		db.execSQL(sqlA.toString());
-
-		sqlA.setLength(0);
-		sqlA.append("CREATE TABLE IF NOT EXISTS UserInterests ");
-		sqlA.append("(");
-		sqlA.append("   _id INTEGER PRIMARY KEY AUTOINCREMENT ");
-		sqlA.append(" , UserID INTEGER ");
-		sqlA.append(" , InterestID INTEGER ");
 		sqlA.append(")");
 		db.execSQL(sqlA.toString());
 
 		sqlA.setLength(0);
 		sqlA.append("CREATE TABLE IF NOT EXISTS Interests ");
 		sqlA.append("(");
-		sqlA.append("   _id INTEGER PRIMARY KEY AUTOINCREMENT ");
 		sqlA.append(" , InterestID INTEGER ");
 		sqlA.append(" , InterestName TEXT ");
 		sqlA.append(")");
 		db.execSQL(sqlA.toString());
 
 		sqlA.setLength(0);
+		sqlA.append("CREATE TABLE IF NOT EXISTS UsersContacts ");
+		sqlA.append("(");
+		sqlA.append(" , UserID INTEGER ");
+		sqlA.append(" , ContactID INTEGER ");
+		sqlA.append(" , ContactStatus TEXT ");
+		sqlA.append(" , FOREIGN KEY (UserID) REFERENCES Users(UserID) ");
+		sqlA.append(" , FOREIGN KEY (ContactID) REFERENCES Users(UserID) ");
+		sqlA.append(")");
+		db.execSQL(sqlA.toString());
+
+		sqlA.setLength(0);
+		sqlA.append("CREATE TABLE IF NOT EXISTS UsersInterests ");
+		sqlA.append("(");
+		sqlA.append(" , UserID INTEGER ");
+		sqlA.append(" , InterestID INTEGER ");
+		sqlA.append(" , FOREIGN KEY (UserID) REFERENCES Users(UserID) ");
+		sqlA.append(" , FOREIGN KEY (InterestID) REFERENCES Interests(InterestID) ");
+		sqlA.append(")");
+		db.execSQL(sqlA.toString());
+
+		sqlA.setLength(0);
 		sqlA.append("CREATE TABLE IF NOT EXISTS Messages ");
 		sqlA.append("(");
-		sqlA.append("   _id INTEGER PRIMARY KEY AUTOINCREMENT ");
 		sqlA.append(" , MessageID INTEGER ");
 		sqlA.append(" , SenderID INTEGER ");
 		sqlA.append(" , ReceiverID INTEGER ");
 		sqlA.append(" , MessageText TEXT ");
 		sqlA.append(" , TimeCreated DATETIME ");
+		sqlA.append(" , FOREIGN KEY (SenderID) REFERENCES Users(UserID) ");
+		sqlA.append(" , FOREIGN KEY (ReceiverID) REFERENCES Users(UserID) ");
 		sqlA.append(")");
 		db.execSQL(sqlA.toString());
 
 		sqlA.setLength(0);
 		sqlA.append("CREATE TABLE IF NOT EXISTS GPS ");
 		sqlA.append("(");
-		sqlA.append("   _id INTEGER PRIMARY KEY AUTOINCREMENT ");
-		sqlA.append(" , UserID INTEGER ");
+		sqlA.append("   UserID INTEGER ");
 		sqlA.append(" , Latitude REAL ");
 		sqlA.append(" , Longitude REAL ");
+		sqlA.append(" , FOREIGN KEY (UserID) REFERENCES Users(UserID) ");
 		sqlA.append(")");
 		db.execSQL(sqlA.toString());
 

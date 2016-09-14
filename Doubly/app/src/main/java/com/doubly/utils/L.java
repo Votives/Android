@@ -7,7 +7,7 @@ import android.util.Log;
  */
 public class L {
 	public static void e(String text){
-		Log.e("Votives", text);
+		Log.e("Doubly", text);
 	}
 	public static void e(String tag, String text){
 		Log.e(tag, text);

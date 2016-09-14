@@ -33,6 +33,7 @@ import com.doubly.listener.BaseListener;
 import com.doubly.listener.MyPagerListener;
 import com.doubly.object.Interest;
 import com.doubly.object.ObjectStore;
+import com.doubly.server.GetUsers;
 import com.doubly.utils.L;
 import com.doubly.utils.Session;
 import com.doubly.utils.SessionKeys;
@@ -41,8 +42,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends FragmentActivity {
-	public static final String CHAT_INFO = "chat_info";
-	public static final String RECEIVER_ID = "receiver_id";
 	public static final ObjectStore os = new ObjectStore();
 	public static final FragmentStore fs = new FragmentStore();
 
