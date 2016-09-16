@@ -16,7 +16,6 @@ import com.doubly.object.Interest;
  * A placeholder fragment containing a simple view.
  */
 public class InterestMainFragment extends BaseFragment {
-	ListView interestList;
 
 	public InterestMainFragment() {
 	}
@@ -30,7 +29,6 @@ public class InterestMainFragment extends BaseFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
 		rootView = inflater.inflate(R.layout.fragment_interest_main, container, false);
-		interestList = (ListView)rootView.findViewById(R.id.interests_list);
 		registerViews();
 		listener.initViews();
 		return rootView;
@@ -38,8 +36,8 @@ public class InterestMainFragment extends BaseFragment {
 
 	@Override
 	public void registerViews(){
+		ListView interestList = (ListView)rootView.findViewById(R.id.interests_list);
 		listener.registerView("interestList", interestList);
-		//interestList.setOnItemClickListener(listener);
 		listener.registerView("addInterestButton",rootView.findViewById(R.id.add_interest) );
 	}
 

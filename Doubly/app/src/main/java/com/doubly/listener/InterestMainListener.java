@@ -18,7 +18,7 @@ import com.doubly.object.TestData;
 /**
  * Created by darkbobo on 11/17/15.
  */
-public class InterestMainListener extends BaseListener {
+public class InterestMainListener extends BaseListener implements View.OnLongClickListener{
 	public InterestMainListener(Context context){
 		super(context);
 	}
@@ -45,5 +45,11 @@ public class InterestMainListener extends BaseListener {
 		Toast.makeText(context, position + " clicked.", Toast.LENGTH_SHORT).show();
 		//MainActivity.fs.changeScreen(ScreenKeys.INTERESTS_USER_LIST);
 		MainActivity.fs.onRowSelected(ScreenKeys.INTERESTS_MAIN, (Interest)parent.getItemAtPosition(position));
+	}
+
+
+	@Override
+	public boolean onLongClick(View v) {
+		return false;
 	}
 }
